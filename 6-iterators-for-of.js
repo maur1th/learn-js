@@ -1,4 +1,4 @@
-// es6
+// es2015
 var list = ['apples', 'oranges', 'kiwis']
 list.name = 'groceries'
 
@@ -49,7 +49,7 @@ for ( var [fruit, n] of new Map([['oranges', 2], ['apples', 3]]) ) {
 })
 
 // Si vous n'utilisez pas de Map, il est possible de faire quelque chose de
-// similaire avec Object.entries (es2016)
-// for ( var [fruit, n] of Object.entries({ oranges: 2, apples: 3 }) ) {
-//   console.log(fruit, n)
-// }
+// similaire avec Object.entries (es2017)
+for ( var [fruit, n] of Object.entries({ oranges: 2, apples: 3 }) ) {
+  console.log(fruit, n)
+}

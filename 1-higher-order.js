@@ -117,7 +117,7 @@ names = animals.map( a => a.name )
 dogs = animals.filter( a => a.species == 'dog' )
 
 
-// Array.reduce
+// 6. Array.reduce
 
 // Pour effectuer des opérations plus complexes pour lesquelles filter ou map
 // ne conviennent pas
@@ -144,3 +144,36 @@ var sum = numbers.reduce( function (sum, n) {
 
 // en es6
 var sum = numbers.reduce( (sum, n) => sum + n , 0)
+
+
+// 7. Array.forEach
+// le dernier clou dans le cercueil de la boucle for
+
+// Pour les cas où l'on a simplement besoin d'itérer sur une liste sans
+// la retourner (pour console.log par exemple)
+// var returnValue = animals.forEach( animal => { console.log(animal) } )
+
+// returnValue est undefined
+// assert(returnValue === undefined)
+
+// Attention, préférer Array.map/filter à Array.forEach pour éviter les effets
+// collatéraux
+var res
+var oddNums = [1, 3, 5, 7]
+var miscNums = [8, 9, 10, 11]
+
+// Ici oddNums est modifié dans le scope de la fonction f1, alors qu'il n'en
+// est pas un argument. La modification de oddNums est un effet collatéral de
+// l'exécution de la fonction.
+miscNums.forEach(function f1(x) {
+  if ( x % 2 == 1 ) {
+    oddNums.push(x)
+  }
+})
+// assert(oddNums == [1, 3, 5, 7, 9, 11])
+
+// vs
+// Ici oddNums n'est pas accédé dans la fonction f2, pas d'effet collatéral
+oddNums = [1, 3, 5, 7]
+res = oddNums.concat(miscNums.filter(function f2(x) { return x % 2 == 1 } ))
+// assert(res == [1, 3, 5, 7, 9, 11])
