@@ -40,42 +40,48 @@ animals = [
 
 // filtrer les chiens
 // pre es5
-var dogs
-dogs = []
-for (var i = 0; i < animals.length; i++) {
-  if ( animals[i].species == 'dog' ) {
-    dogs.push(animals[i])
+{
+  const dogs = []
+  for (var i = 0; i < animals.length; i++) {
+    if ( animals[i].species == 'dog' ) {
+      dogs.push(animals[i])
+    }
   }
-}
 
-assert.deepEqual(dogs, [
-  { name: 'Hamilton',   species: 'dog' },
-  { name: 'Ursula',     species: 'dog' },
-])
+  assert.deepEqual(dogs, [
+    { name: 'Hamilton',   species: 'dog' },
+    { name: 'Ursula',     species: 'dog' },
+  ])
+}
 
 
 // es5 -- function composition :
 // la fonction .filter prend une fonction comme argument
-dogs = animals.filter(function (animal) {
-  return animal.species == 'dog'
-})
+{
+  const dogs = animals.filter(function (animal) {
+    return animal.species == 'dog'
+  })
 
-assert.deepEqual(dogs, [
-  { name: 'Hamilton',   species: 'dog' },
-  { name: 'Ursula',     species: 'dog' },
-])
+  assert.deepEqual(dogs, [
+    { name: 'Hamilton',   species: 'dog' },
+    { name: 'Ursula',     species: 'dog' },
+  ])
+}
 
 
 // ou
-var isDog = function (animal) {
+const isDog = function (animal) {
   return animal.species == 'dog'
 }
-dogs = animals.filter(isDog)
 
-assert.deepEqual(dogs, [
-  { name: 'Hamilton',   species: 'dog' },
-  { name: 'Ursula',     species: 'dog' },
-])
+{
+  const dogs = animals.filter(isDog)
+
+  assert.deepEqual(dogs, [
+    { name: 'Hamilton',   species: 'dog' },
+    { name: 'Ursula',     species: 'dog' },
+  ])
+}
 
 
 
@@ -84,22 +90,26 @@ assert.deepEqual(dogs, [
 
 // obtenir une liste des noms
 // pre es5
-var names
-names = []
-for (var i = 0; i < animals.length; i++) {
-  names.push(animals[i].name)
-}
+{
+  const names = []
+  for (var i = 0; i < animals.length; i++) {
+    names.push(animals[i].name)
+  }
 
-assert.deepEqual(names, ['Fluffykins', 'Caro', 'Hamilton', 'Harold', 'Ursula', 'Jimmy'])
+  assert.deepEqual(names, ['Fluffykins', 'Caro', 'Hamilton', 'Harold', 'Ursula', 'Jimmy'])
+}
 
 
 // es5
-var getName = function (animal) {
+const getName = function (animal) {
   return animal.name
 }
-names = animals.map(getName)
 
-assert.deepEqual(names, ['Fluffykins', 'Caro', 'Hamilton', 'Harold', 'Ursula', 'Jimmy'])
+{
+  const names = animals.map(getName)
+
+  assert.deepEqual(names, ['Fluffykins', 'Caro', 'Hamilton', 'Harold', 'Ursula', 'Jimmy'])
+}
 
 
 
@@ -108,14 +118,17 @@ assert.deepEqual(names, ['Fluffykins', 'Caro', 'Hamilton', 'Harold', 'Ursula', '
 // chaînées autant de fois que nécessaire
 
 // obtenir le nom des chiens
-names = animals.filter(isDog).map(getName)
+{
+  const names = animals.filter(isDog).map(getName)
 
-assert.deepEqual(names, ['Hamilton', 'Ursula'])
+  assert.deepEqual(names, ['Hamilton', 'Ursula'])
+}
 
 
 
 // 5. ES6 / ES2015 syntactic sugar: arrow functions
 // http://goo.gl/t4hMxL
+let names
 names = animals.map(function (animal) {
   return animal.name
 })
@@ -173,13 +186,17 @@ names = animals.reduce(function (list, animal) {
 
 
 // Sum
-var numbers = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
-var sum = numbers.reduce( function (sum, n) {
-  return sum + n
-}, 0)
+const numbers = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+{
+  const sum = numbers.reduce( function (sum, n) {
+    return sum + n
+  }, 0)
+}
 
 // en es6
-var sum = numbers.reduce( (sum, n) => sum + n , 0)
+{
+  const sum = numbers.reduce( (sum, n) => sum + n , 0)
+}
 
 
 
@@ -188,8 +205,8 @@ var sum = numbers.reduce( (sum, n) => sum + n , 0)
 
 // Pour les cas où l'on a simplement besoin d'itérer sur une liste sans
 // la retourner (pour console.log par exemple)
-var display = () => {}
-var returnValue = animals.forEach( animal => { display(animal) } )
+const display = () => {}
+const returnValue = animals.forEach( animal => { display(animal) } )
 
 // returnValue est undefined
 assert(returnValue === undefined)
@@ -197,22 +214,27 @@ assert(returnValue === undefined)
 
 // Attention, préférer Array.map/filter à Array.forEach pour éviter les effets
 // collatéraux
-var res
-var oddNums = [1, 3, 5, 7]
-var miscNums = [8, 9, 10, 11]
+const miscNums = [8, 9, 10, 11]
 
 // Ici oddNums est modifié dans le scope de la fonction f1, alors qu'il n'en
 // est pas un argument. La modification de oddNums est un effet collatéral de
 // l'exécution de la fonction.
-miscNums.forEach(function f1(x) {
-  if ( x % 2 == 1 ) {
-    oddNums.push(x)
-  }
-})
-assert.deepEqual(oddNums, [1, 3, 5, 7, 9, 11])
+{
+  const oddNums = [1, 3, 5, 7]
+  miscNums.forEach(function f1(x) {
+    if ( x % 2 == 1 ) {
+      oddNums.push(x)
+    }
+  })
+
+  assert.deepEqual(oddNums, [1, 3, 5, 7, 9, 11])
+}
 
 // vs
 // Ici oddNums n'est pas accédé dans la fonction f2, pas d'effet collatéral
-oddNums = [1, 3, 5, 7]
-res = oddNums.concat(miscNums.filter(function f2(x) { return x % 2 == 1 } ))
-assert.deepEqual(res, [1, 3, 5, 7, 9, 11])
+{
+  const oddNums = [1, 3, 5, 7]
+  const res = oddNums.concat(miscNums.filter(function f2(x) { return x % 2 == 1 } ))
+
+  assert.deepEqual(res, [1, 3, 5, 7, 9, 11])
+}
