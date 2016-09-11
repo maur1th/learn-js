@@ -6,7 +6,7 @@ const assert = require('assert')
 // 1. Les Arrays
 const peopleQueue = ['Joe', 'Clara', 'Jenn', 'Philip', 'Xavier']
 
-// < es5
+// < es2015
 {
   const first = peopleQueue[0]
   const second = peopleQueue[1]
@@ -58,7 +58,7 @@ const query = {
   summary: 'Lunch with Sarah',
 }
 
-// < es5
+// < es2015
 {
   const date = query.date
   const summary = query.summary
@@ -73,4 +73,28 @@ const query = {
 
   assert(date === 'YYYY-MM-DD HH:mm:ss')
   assert(summary === 'Lunch with Sarah')
+}
+
+
+// 3. Dans les fonctions
+
+// < es2015
+function process(query) {
+  const summary = query.summary
+  const date = query.date
+
+  if ( !(summary && date) ) {
+    throw new Error('Invalid query')
+  }
+
+  // do stuff
+}
+
+// es2015
+function process({ summary, date }) {
+  if ( !(summary && date) ) {
+    throw new Error('Invalid query')
+  }
+
+  // do stuff
 }
