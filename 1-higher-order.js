@@ -1,4 +1,4 @@
-'use strict'
+const assert = require('assert')
 // Programmation fonctionnelle
 
 //
@@ -20,6 +20,10 @@ var triple = function (x) {
 // peut aussi être assigné à une autre variable
 var func2 = triple
 
+assert(triple(2) === 6)
+assert(func2(2) === 6)
+
+
 
 // 2. Array.filter
 // http://goo.gl/Jr7cn
@@ -33,6 +37,7 @@ animals = [
   { name: 'Jimmy',      species: 'fish' }
 ]
 
+
 // filtrer les chiens
 // pre es5
 var dogs
@@ -43,17 +48,35 @@ for (var i = 0; i < animals.length; i++) {
   }
 }
 
+assert.deepEqual(dogs, [
+  { name: 'Hamilton',   species: 'dog' },
+  { name: 'Ursula',     species: 'dog' },
+])
+
+
 // es5 -- function composition :
 // la fonction .filter prend une fonction comme argument
 dogs = animals.filter(function (animal) {
   return animal.species == 'dog'
 })
 
+assert.deepEqual(dogs, [
+  { name: 'Hamilton',   species: 'dog' },
+  { name: 'Ursula',     species: 'dog' },
+])
+
+
 // ou
 var isDog = function (animal) {
   return animal.species == 'dog'
 }
 dogs = animals.filter(isDog)
+
+assert.deepEqual(dogs, [
+  { name: 'Hamilton',   species: 'dog' },
+  { name: 'Ursula',     species: 'dog' },
+])
+
 
 
 // 3. Array.map
@@ -67,11 +90,17 @@ for (var i = 0; i < animals.length; i++) {
   names.push(animals[i].name)
 }
 
+assert.deepEqual(names, ['Fluffykins', 'Caro', 'Hamilton', 'Harold', 'Ursula', 'Jimmy'])
+
+
 // es5
 var getName = function (animal) {
   return animal.name
 }
 names = animals.map(getName)
+
+assert.deepEqual(names, ['Fluffykins', 'Caro', 'Hamilton', 'Harold', 'Ursula', 'Jimmy'])
+
 
 
 // 4. Chaining
@@ -81,8 +110,12 @@ names = animals.map(getName)
 // obtenir le nom des chiens
 names = animals.filter(isDog).map(getName)
 
+assert.deepEqual(names, ['Hamilton', 'Ursula'])
+
+
 
 // 5. ES6 / ES2015 syntactic sugar: arrow functions
+// http://goo.gl/t4hMxL
 names = animals.map(function (animal) {
   return animal.name
 })
@@ -117,7 +150,9 @@ names = animals.map( a => a.name )
 dogs = animals.filter( a => a.species == 'dog' )
 
 
+
 // 6. Array.reduce
+// http://goo.gl/rQSAhf
 
 // Pour effectuer des opérations plus complexes pour lesquelles filter ou map
 // ne conviennent pas
@@ -136,6 +171,7 @@ names = animals.reduce(function (list, animal) {
 // Ça n'est pas forcément une bonne idée car on gagne peu/pas en performance,
 // et on perd en lisibilité
 
+
 // Sum
 var numbers = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
 var sum = numbers.reduce( function (sum, n) {
@@ -146,15 +182,18 @@ var sum = numbers.reduce( function (sum, n) {
 var sum = numbers.reduce( (sum, n) => sum + n , 0)
 
 
+
 // 7. Array.forEach
-// le dernier clou dans le cercueil de la boucle for
+// http://goo.gl/XE0c1Z
 
 // Pour les cas où l'on a simplement besoin d'itérer sur une liste sans
 // la retourner (pour console.log par exemple)
-// var returnValue = animals.forEach( animal => { console.log(animal) } )
+var display = () => {}
+var returnValue = animals.forEach( animal => { display(animal) } )
 
 // returnValue est undefined
-// assert(returnValue === undefined)
+assert(returnValue === undefined)
+
 
 // Attention, préférer Array.map/filter à Array.forEach pour éviter les effets
 // collatéraux
@@ -170,10 +209,10 @@ miscNums.forEach(function f1(x) {
     oddNums.push(x)
   }
 })
-// assert(oddNums == [1, 3, 5, 7, 9, 11])
+assert.deepEqual(oddNums, [1, 3, 5, 7, 9, 11])
 
 // vs
 // Ici oddNums n'est pas accédé dans la fonction f2, pas d'effet collatéral
 oddNums = [1, 3, 5, 7]
 res = oddNums.concat(miscNums.filter(function f2(x) { return x % 2 == 1 } ))
-// assert(res == [1, 3, 5, 7, 9, 11])
+assert.deepEqual(res, [1, 3, 5, 7, 9, 11])
