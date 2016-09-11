@@ -75,8 +75,41 @@ const query = {
   assert(summary === 'Lunch with Sarah')
 }
 
+// changer le nom de la variable
+{
+  const {summary: note, date} = query
 
-// 3. Dans les fonctions
+  assert(date === 'YYYY-MM-DD HH:mm:ss')
+  assert(note === 'Lunch with Sarah')
+}
+
+
+// 3. Imbrications
+{
+  const record = {
+    name: 'John',
+    age: 21,
+    hobbies: [
+      {
+        name: 'swimming',
+        frequency: 'twice a week',
+      },
+      {
+        name: 'painting',
+        frequency: 'every sunday morning',
+      }
+    ],
+  }
+
+  const {name, hobbies: [{name: firstHobby}, {name: secondHobby}]} = record
+
+  assert(name === 'John')
+  assert(firstHobby === 'swimming')
+  assert(secondHobby === 'painting')
+}
+
+
+// 4. Dans les fonctions
 
 // < es2015
 function process(query) {
