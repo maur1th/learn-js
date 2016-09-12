@@ -35,6 +35,7 @@ Babel permet de transformer (transpiler) du code ES2015 en ES5, le rendant ainsi
 ```
 
 ## Liens
+- [The Two Pillars of JavaScript - Parts 1 & 2](https://medium.com/javascript-scene/the-two-pillars-of-javascript-ee6f3281e7f3) ([code examples](https://github.com/learn-javascript-courses/composition-examples#composition-examples))
 - [Node](https://nodejs.org/en/)
 - [Babel](https://babeljs.io/docs/setup/#installation)
 - [es5-shim](https://github.com/es-shims/es5-shim)
