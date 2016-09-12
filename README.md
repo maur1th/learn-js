@@ -15,27 +15,27 @@ Babel permet de transformer (transpiler) du code ES2015 en ES5, le rendant ainsi
 ```sh
 > npm install --save-dev babel-cli babel-preset-es2015
 ```
-- `.babelrc`
-```json
-{
-  "presets": ["es2015"]
-}
-```
-- `package.json`
-```json
-{
-  "scripts": {
-    "build": "babel"
-  }
-}
-```
-- Transpiler
+- Fichier de configuration : `.babelrc`
+- Transpiler (via le script `build` de `package.json`)
 ```sh
 > npm run build script.js
 ```
 
+## ESLint
+ESLint est un descendant de JSHint et JSLint. Plus modulaire, il permet une plus grande granularité dans les [options de linting proposées](http://eslint.org/docs/rules/) et peut utiliser un parser custom pour, par exemple, utiliser Babel (et donc pouvoir analyser un code dont par défaut, il ne prend pas encore en charge la syntaxe).
+- Installation
+```sh
+> npm install --save-dev eslint babel-eslint
+```
+- Fichier de configuration : `.eslintrc`
+- Analyser (via le script `lint` de `package.json`)
+```sh
+> npm run lint script.js
+```
+
 ## Liens
 - [The Two Pillars of JavaScript - Parts 1 & 2](https://medium.com/javascript-scene/the-two-pillars-of-javascript-ee6f3281e7f3) ([code examples](https://github.com/learn-javascript-courses/composition-examples#composition-examples))
-- [Node](https://nodejs.org/en/)
 - [Babel](https://babeljs.io/docs/setup/#installation)
 - [es5-shim](https://github.com/es-shims/es5-shim)
+- [Getting Started with ESLint](http://eslint.org/docs/user-guide/getting-started)
+- [Configuring ESLint](http://eslint.org/docs/user-guide/configuring)

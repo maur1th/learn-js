@@ -1,0 +1,32 @@
+{
+  "name": "learn-js",
+  "version": "1.0.0",
+  "description": "```sh > npm init -f ```",
+  "main": "1-higher-order.js",
+  "dependencies": {
+    "object.entries": "^1.0.3",
+    "object.values": "^1.0.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-eslint": "^6.1.2",
+    "babel-preset-es2015": "^6.14.0",
+    "eslint": "^3.5.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel",
+    "lint": "eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maur1th/learn-js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maur1th/learn-js/issues"
+  },
+  "homepage": "https://github.com/maur1th/learn-js#readme"
+}
