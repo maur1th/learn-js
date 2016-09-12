@@ -1,12 +1,12 @@
 const assert = require('assert')
-// En es2015, il est possible de déstructurer les arrays et les objets
+// En ES 2015, il est possible de déstructurer les arrays et les objets
 // http://goo.gl/ay7XRY
 
 
 // 1. Les Arrays
 const peopleQueue = ['Joe', 'Clara', 'Jenn', 'Philip', 'Xavier']
 
-// < es2015
+// < ES 2015
 {
   const first = peopleQueue[0]
   const second = peopleQueue[1]
@@ -17,7 +17,7 @@ const peopleQueue = ['Joe', 'Clara', 'Jenn', 'Philip', 'Xavier']
   assert(third === 'Jenn')
 }
 
-// es2015
+// ES 2015
 {
   const [first, second, third] = peopleQueue
 
@@ -58,7 +58,7 @@ const query = {
   summary: 'Lunch with Sarah',
 }
 
-// < es2015
+// < ES 2015
 {
   const date = query.date
   const summary = query.summary
@@ -67,7 +67,7 @@ const query = {
   assert(summary === 'Lunch with Sarah')
 }
 
-// es2015
+// ES 2015
 {
   const {summary, date} = query
 
@@ -111,7 +111,7 @@ const query = {
 
 // 4. Dans les fonctions
 
-// < es2015
+// < ES 2015
 function process(query) {
   const summary = query.summary
   const date = query.date
@@ -123,7 +123,7 @@ function process(query) {
   // do stuff
 }
 
-// es2015
+// ES 2015
 function process({ summary, date }) {
   if ( !(summary && date) ) {
     throw new Error('Invalid query')

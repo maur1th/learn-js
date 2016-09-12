@@ -39,7 +39,7 @@ animals = [
 
 
 // filtrer les chiens
-// pre es5
+// pre ES 5
 {
   const dogs = []
   for (var i = 0; i < animals.length; i++) {
@@ -55,7 +55,7 @@ animals = [
 }
 
 
-// es5 -- function composition :
+// ES 5 -- function composition :
 // la fonction .filter prend une fonction comme argument
 {
   const dogs = animals.filter(function (animal) {
@@ -89,7 +89,7 @@ const isDog = function (animal) {
 // http://goo.gl/8BSD2u
 
 // obtenir une liste des noms
-// pre es5
+// pre ES 5
 {
   const names = []
   for (var i = 0; i < animals.length; i++) {
@@ -100,7 +100,7 @@ const isDog = function (animal) {
 }
 
 
-// es5
+// ES 5
 const getName = function (animal) {
   return animal.name
 }
@@ -150,7 +150,7 @@ names = animals.map( animal => animal.name )
 // variable par des lettres :
 names = animals.map( a => a.name )
 
-// in fine, on passe donc pre es5 de :
+// in fine, on passe donc pre ES 5 de :
 names = []
 for (var i = 0; i < animals.length; i++) {
   names.push(animals[i].name)
@@ -193,7 +193,7 @@ const numbers = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
   }, 0)
 }
 
-// en es6
+// en ES 2015
 {
   const sum = numbers.reduce( (sum, n) => sum + n , 0)
 }

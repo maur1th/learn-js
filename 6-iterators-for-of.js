@@ -1,6 +1,6 @@
 const assert = require('assert')
 
-// es2015
+// ES 2015
 const list = ['apples', 'oranges', 'kiwis']
 list.name = 'groceries'
 
@@ -8,7 +8,7 @@ list.name = 'groceries'
 // parfois utile d'intérompre l'exécution d'une boucle en cours à l'aide d'un
 // `return` ou d'un `break`
 
-// Seule bonne façon de faire avant es6
+// Seule bonne façon de faire avant ES 2015
 {
   const res = []
   for ( var i = 0; i < list.length; i++ ) {
@@ -77,7 +77,7 @@ list.name = 'groceries'
 }
 
 // Si vous n'utilisez pas de Map, il est possible de faire quelque chose de
-// similaire avec Object.entries (es2017)
+// similaire avec Object.entries (ES 2017)
 if ( !Object.entries ) { require('object.entries').shim() }
 
 {

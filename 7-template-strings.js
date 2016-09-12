@@ -1,4 +1,4 @@
-// es2015
+// ES 2015
 // Les template strings permettent de faire de l'interpolation de chaine de
 // caractères en javascript
 var animals = [
