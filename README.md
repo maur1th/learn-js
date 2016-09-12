@@ -16,7 +16,7 @@ Babel permet de transformer (transpiler) du code ES2015 en ES5, le rendant ainsi
 > npm install --save-dev babel-cli babel-preset-es2015
 ```
 - Fichier de configuration : `.babelrc`
-- Transpiler (via le script `build` de `package.json`)
+- Transpiler (via le script `build` du `package.json`)
 ```sh
 > npm run build script.js
 ```
@@ -28,7 +28,7 @@ ESLint est un descendant de JSHint et JSLint. Plus modulaire, il permet une plus
 > npm install --save-dev eslint babel-eslint
 ```
 - Fichier de configuration : `.eslintrc`
-- Analyser (via le script `lint` de `package.json`)
+- Analyser (via le script `lint` du `package.json`)
 ```sh
 > npm run lint script.js
 ```
@@ -39,3 +39,4 @@ ESLint est un descendant de JSHint et JSLint. Plus modulaire, il permet une plus
 - [es5-shim](https://github.com/es-shims/es5-shim)
 - [Getting Started with ESLint](http://eslint.org/docs/user-guide/getting-started)
 - [Configuring ESLint](http://eslint.org/docs/user-guide/configuring)
+- [Lint Like It’s 2015](https://medium.com/@dan_abramov/lint-like-it-s-2015-6987d44c5b48)
