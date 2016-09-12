@@ -1,4 +1,5 @@
 const assert = require('assert')
+console.log('test 1')
 // Programmation fonctionnelle
 
 //

@@ -1,5 +1,5 @@
 const assert = require('assert')
-
+console.log('test 6')
 // ES 2015
 const list = ['apples', 'oranges', 'kiwis']
 list.name = 'groceries'

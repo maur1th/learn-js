@@ -1,5 +1,5 @@
 const assert = require('assert')
-
+console.log('test 2')
 // En JS les blocks ne sont pas des scopes
 // Le scope d'une variable `var` déclarée dans un bloc couvre donc toute sa
 // fonction

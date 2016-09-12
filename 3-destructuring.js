@@ -1,4 +1,5 @@
 const assert = require('assert')
+console.log('test 3')
 // En ES 2015, il est possible de déstructurer les arrays et les objets
 // http://goo.gl/ay7XRY
 

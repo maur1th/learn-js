@@ -1,5 +1,5 @@
 const assert = require('assert')
-
+console.log('test 4')
 // Il est possible d'attribuer une valeur par défaut à un argument
 // cette valeur remplacera tout argument dont la valeur est `undefined`
 var f = function (n=2) {

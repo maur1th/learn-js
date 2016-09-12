@@ -1,5 +1,5 @@
 const assert = require('assert')
-
+console.log('test 5')
 // 1. Object.assign (ES 5)
 
 // Permet de copier toutes propriétés propres d'un ou plusieurs objets vers un
