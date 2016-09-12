@@ -27,14 +27,13 @@ assert(func2(2) === 6)
 
 // 2. Array.filter
 // http://goo.gl/Jr7cn
-var animals;
-animals = [
+const animals = [
   { name: 'Fluffykins', species: 'rabbit' },
   { name: 'Caro',       species: 'fish' },
   { name: 'Hamilton',   species: 'dog' },
   { name: 'Harold',     species: 'fish' },
   { name: 'Ursula',     species: 'dog' },
-  { name: 'Jimmy',      species: 'fish' }
+  { name: 'Jimmy',      species: 'fish' },
 ]
 
 
@@ -42,7 +41,7 @@ animals = [
 // pre ES 5
 {
   const dogs = []
-  for (var i = 0; i < animals.length; i++) {
+  for (let i = 0; i < animals.length; i++) {
     if ( animals[i].species == 'dog' ) {
       dogs.push(animals[i])
     }
@@ -92,7 +91,7 @@ const isDog = function (animal) {
 // pre ES 5
 {
   const names = []
-  for (var i = 0; i < animals.length; i++) {
+  for (let i = 0; i < animals.length; i++) {
     names.push(animals[i].name)
   }
 
@@ -152,7 +151,7 @@ names = animals.map( a => a.name )
 
 // in fine, on passe donc pre ES 5 de :
 names = []
-for (var i = 0; i < animals.length; i++) {
+for (let i = 0; i < animals.length; i++) {
   names.push(animals[i].name)
 }
 
@@ -160,7 +159,11 @@ for (var i = 0; i < animals.length; i++) {
 names = animals.map( a => a.name )
 
 // voici ce que donne l'exemple pour Array.filter une fois transformé :
-dogs = animals.filter( a => a.species == 'dog' )
+var dogs = animals.filter( a => a.species == 'dog' )
+assert.deepEqual(dogs, [
+  { name: 'Hamilton',   species: 'dog' },
+  { name: 'Ursula',     species: 'dog' },
+])
 
 
 
